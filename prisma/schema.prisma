@@ -14,4 +14,13 @@ model product {
 id Int @id @default(autoincrement())
 name String
 price String
+categoryId Int
+category category @relation(fields: [categoryId], references: [id])
+}
+
+
+model category {
+  id Int @id @default(autoincrement())
+  name String
+  product product[]
 }
